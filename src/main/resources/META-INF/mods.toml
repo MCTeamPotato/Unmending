@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT License"
+issueTrackerURL="https://github.com/Kasualix/Kasualix-s-random-mod/issues"
+[[mods]]
+modId="unmending"
+version="1.0"
+displayName="Unmending"
+displayURL="https://github.com/Kasualix/Kasualix-s-random-mod"
+authors="Team Potato"
+description='''
+Mending? Unmending!
+'''
