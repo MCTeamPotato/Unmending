@@ -55,21 +55,21 @@ public class EventHandler {
             if (right.getItem() == Items.ENCHANTED_BOOK) isMended = true;
         }
 
-        if (isMended) {
-            if (out.isEmpty()) out = left.copy();
-            if (!out.hasTag()) out.setTag(new CompoundNBT());
+        if (!isMended) return;
+        if (out.isEmpty()) out = left.copy();
+        if (!out.hasTag()) out.setTag(new CompoundNBT());
 
-            Map<Enchantment, Integer> enchOutput = EnchantmentHelper.getEnchantments(out);
-            enchOutput.putAll(enchRight);
-            enchOutput.remove(Enchantments.MENDING);
-            EnchantmentHelper.setEnchantments(enchOutput, out);
+        Map<Enchantment, Integer> enchOutput = EnchantmentHelper.getEnchantments(out);
+        enchOutput.putAll(enchRight);
+        enchOutput.remove(Enchantments.MENDING);
+        EnchantmentHelper.setEnchantments(enchOutput, out);
 
-            out.setRepairCost(0);
-            if (out.isDamageable()) out.setDamage(0);
+        out.setRepairCost(0);
+        if (out.isDamageable()) out.setDamage(0);
 
-            event.setOutput(out);
-            if (event.getCost() == 0) event.setCost(1);
-        }
+        event.setOutput(out);
+        if (event.getCost() == 0) event.setCost(1);
+        
     }
 
     @SubscribeEvent
