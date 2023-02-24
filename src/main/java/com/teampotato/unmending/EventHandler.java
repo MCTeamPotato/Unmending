@@ -27,6 +27,7 @@ public class EventHandler {
     @SubscribeEvent
     public static void killMending(PlayerXpEvent.PickupXp event) {
         PlayerEntity player = event.getPlayer();
+        if (player.world.isRemote) return;
         ExperienceOrbEntity orb = event.getOrb();
 
         player.xpCooldown = 2;
